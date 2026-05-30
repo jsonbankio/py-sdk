@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "jsonbank"
-version = "0.1.0"
+dynamic = ["version"]
 description = "JsonBank.io Python SDK"
 readme = "README.md"
 requires-python = ">=3.9"
@@ -32,6 +32,9 @@ dev = ["pytest>=7", "python-dotenv>=1.0", "build", "twine"]
 Homepage = "https://docs.jsonbank.io/sdks/python"
 Documentation = "https://docs.jsonbank.io/sdks/python"
 Repository = "https://github.com/jsonbankio/py-sdk"
+
+[tool.hatch.version]
+path = "jsonbank/__init__.py"
 
 [tool.hatch.build.targets.wheel]
 packages = ["jsonbank"]
