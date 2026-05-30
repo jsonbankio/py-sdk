@@ -1,0 +1,10 @@
+# pre-push: build and test before allowing a push.
+# Activate the project virtualenv if present so python3/pytest/build resolve.
+if [ -f .venv/bin/activate ]; then
+  . .venv/bin/activate
+fi
+
+# Runs the full test suite (network/auth tests skip when unavailable).
+# For a faster offline-only gate, swap `npm test` for:
+#   python3 -m pytest tests/test_functions.py
+npm test && npm run build

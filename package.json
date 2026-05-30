@@ -10,6 +10,10 @@
   "scripts": {
     "test": "python3 -m pytest",
     "build": "python3 -m build",
-    "publish": "python3 -m pytest && python3 -m build && python3 -m twine upload dist/*"
+    "publish": "python3 -m pytest && python3 -m build && python3 -m twine upload dist/*",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7"
   }
 }
