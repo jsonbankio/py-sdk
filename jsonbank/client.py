@@ -1,9 +1,7 @@
 """The :class:`JsonBank` client.
 
-Mirrors the method surface of the Rust SDK (``rust-sdk/src/lib.rs``) one-to-one,
-but the ergonomics are Pythonic: a pooled :class:`requests.Session`, exceptions
-instead of ``Result``, typed dataclasses on the way out, and flexible
-``dict`` / ``**kwargs`` / dataclass inputs on the way in.
+A pooled :class:`requests.Session`, exceptions on failure, typed dataclasses on
+the way out, and flexible ``dict`` / ``**kwargs`` / dataclass inputs on the way in.
 """
 
 from __future__ import annotations
@@ -101,7 +99,7 @@ class JsonBank:
 
     @classmethod
     def without_config(cls) -> "JsonBank":
-        """Create a client without keys (mirrors Rust's ``new_without_config``)."""
+        """Create a client without keys."""
         return cls()
 
     # -- context manager ------------------------------------------------------
@@ -208,7 +206,7 @@ class JsonBank:
             return res.text
         return self._raise_response_error(res)
 
-    # thin wrappers (mirror Rust's public_request / read_request / write_request ...)
+    # thin wrappers for the public / read / write / delete request patterns
     def _public_request(self, paths: List[str]) -> Any:
         return self._process_response(self._request("GET", self._public_url(paths)))
 
@@ -255,7 +253,7 @@ class JsonBank:
         """Normalize ``content`` to a validated JSON string.
 
         A ``str`` is treated as raw JSON text; anything else is serialized with
-        :func:`json.dumps` (matching the Node/Go/Rust SDKs).
+        :func:`json.dumps`.
         """
         if content is None:
             raise JsonBankError("bad_request", "Content required")
@@ -263,7 +261,7 @@ class JsonBank:
             text = content
         else:
             try:
-                # Minified, matching the Node (JSON.stringify) and Go (compact) SDKs.
+                # Minified to keep the payload small over the wire.
                 text = json.dumps(content, separators=(",", ":"))
             except (TypeError, ValueError):
                 raise invalid_json_error()

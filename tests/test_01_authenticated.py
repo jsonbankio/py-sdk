@@ -1,7 +1,6 @@
 """Authenticated suite — needs network and API keys.
 
-Mirrors ``rust-sdk/tests/01_authenticated_test.rs`` and the Node "Authenticated"
-group. Skipped entirely when ``JSB_PUBLIC_KEY`` / ``JSB_PRIVATE_KEY`` are unset.
+Skipped entirely when ``JSB_PUBLIC_KEY`` / ``JSB_PRIVATE_KEY`` are unset.
 
 Tests run in definition order (pytest default), so the folder is created before
 the tests that depend on it.

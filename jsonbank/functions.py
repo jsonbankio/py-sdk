@@ -1,4 +1,4 @@
-"""Stateless helper functions (mirrors Rust's ``functions.rs``).
+"""Stateless helper functions.
 
 Includes the small extras that make the SDK feel Pythonic: ``normalize_body``
 turns a dataclass, a plain ``dict``, or ``**kwargs`` into a single typed body.

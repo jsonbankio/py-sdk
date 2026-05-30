@@ -1,8 +1,7 @@
 """Typed models for the JsonBank SDK.
 
 Response models are ``@dataclass`` objects with ``from_dict`` converters that map
-the API's camelCase JSON onto Pythonic ``snake_case`` attributes (the equivalent
-of Go's ``DataToDocumentMeta`` and Rust's ``json_object_to_*`` functions).
+the API's camelCase JSON onto Pythonic ``snake_case`` attributes.
 
 Request bodies (``CreateDocumentBody`` etc.) are *optional* typed conveniences —
 the write methods also accept a plain ``dict`` or ``**kwargs``.

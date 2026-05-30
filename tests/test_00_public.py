@@ -1,6 +1,5 @@
 """Public (not-authenticated) suite — needs network, no API keys.
 
-Mirrors ``rust-sdk/tests/00_main_test.rs`` and the Node "Not Authenticated" group.
 The whole module is skipped if the API can't be reached.
 """
 

@@ -38,11 +38,11 @@ from .structs import (
 
 __version__ = "0.1.0"
 
-#: Any decoded JSON value (parity with the Rust SDK's ``JsonValue``).
+#: Any decoded JSON value.
 JsonValue = Any
-#: A decoded JSON object (parity with the Rust SDK's ``JsonObject``).
+#: A decoded JSON object.
 JsonObject = Dict[str, Any]
-#: A decoded JSON array (parity with the Rust SDK's ``JsonArray``).
+#: A decoded JSON array.
 JsonArray = List[Any]
 
 __all__ = [

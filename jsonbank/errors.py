@@ -1,8 +1,7 @@
 """JsonBank error types.
 
-Mirrors the ``JsbError`` / ``RequestError`` shape from the Rust and Go SDKs
-(``code`` + ``message``), but raised as a Python exception the way the Node SDK
-throws ``JSB_Error``.
+Failed requests raise :class:`JsonBankError`, which carries a machine readable
+``code`` alongside a human readable ``message``.
 """
 
 from __future__ import annotations
@@ -31,10 +30,7 @@ class JsonBankError(Exception):
 
 
 def invalid_json_error() -> JsonBankError:
-    """The shared "content is not valid JSON" error.
-
-    Matches Go's ``InvalidJsonError`` and Rust's ``err_invalid_json()``.
-    """
+    """The shared "content is not valid JSON" error."""
     return JsonBankError(
         "invalid_json_content", "Content is not a valid JSON string"
     )

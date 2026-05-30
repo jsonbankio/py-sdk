@@ -1,8 +1,7 @@
 """Shared pytest fixtures and environment loading.
 
-Mirrors the test setup of the Go/Rust/Node SDKs: the suite runs against the live
-API using a public test document at ``jsonbank/sdk-test/index.json`` and an owned
-one at ``sdk-test/index.json``.
+The suite runs against the live API using a public test document at
+``jsonbank/sdk-test/index.json`` and an owned one at ``sdk-test/index.json``.
 
 - Authenticated tests are **skipped** when ``JSB_PUBLIC_KEY`` / ``JSB_PRIVATE_KEY``
   are not set (instead of hard-failing).
