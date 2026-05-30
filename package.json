@@ -1,0 +1,15 @@
+{
+  "name": "jsonbank",
+  "version": "0.1.0",
+  "description": "Jsonbank Python SDK. This package.json file is only sugar access to clickable script commands",
+  "main": "jsonbank/__init__.py",
+  "repository": "https://github.com/jsonbankio/py-sdk",
+  "author": "trapcodeio <trapcode.io@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "test": "python3 -m pytest",
+    "build": "python3 -m build",
+    "publish": "python3 -m pytest && python3 -m build && python3 -m twine upload dist/*"
+  }
+}
